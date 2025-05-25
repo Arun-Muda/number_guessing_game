@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = new Random().nextInt(100) + 1;
+        int attempts = 7;
+
+        System.out.println("🎮 Guess the number (1-100)! You have " + attempts + " tries.");
+
+        while (attempts-- > 0) {
+            System.out.print("Your guess: ");
+            int guess = sc.nextInt();
+
+            if (guess == number) {
+                System.out.println("✅ Correct! You win!");
+                return;
+            } else if (guess < number) {
+                System.out.println("🔼 Too low!");
+            } else {
+                System.out.println("🔽 Too high!");
+            }
+        }
+
+        System.out.println("❌ Out of tries! The number was: " + number);
+    }
+}
